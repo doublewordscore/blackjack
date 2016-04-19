@@ -11,6 +11,7 @@ def value(x)
   end
 end
 
+# method to count score with aces last to determine if the ace(s) are worth 1 or 11
 def count_score(array)
   total = 0
   sorted_hand = array.sort_by { |x| value(x) }
@@ -33,6 +34,7 @@ def start_game
   puts "Great! Let's play blackjack!"
 end
 
+# sets the users bankroll and bet amount
 def wager_hand
   1.times do
     puts "How much do you want to wager?"
@@ -58,13 +60,6 @@ def deal_hand
   puts "Dealer has #{$dealer_hand}"
   puts count_score($dealer_hand)
 end
-
-
-# create a conditional to check blackjack
-# if true, pay out 3:2, if false go to method player_decision
-# blackjack method is total == 21 && array.length == 2
-
-# add double down option (2x wager, 1 hit)
 
 def player_decision
   1.times do
@@ -102,6 +97,7 @@ def stay(array)
   determine_winner
 end
 
+# checks hand for blackjack and pays out 3:2 ratio 
 def check_blackjack
   if count_score($player_hand) == 21 && $player_hand.length == 2
     puts "Blackjack! You win!"
