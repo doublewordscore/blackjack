@@ -55,7 +55,7 @@ def deal_hand
   $player_hand.push(@cards.sample)
   $player_hand.push(@cards.sample)
   $dealer_hand.push(@cards.sample)
-  puts "Name has #{$player_hand}"
+  puts @name + " has #{$player_hand}"
   puts count_score($player_hand)
   puts "Dealer has #{$dealer_hand}"
   puts count_score($dealer_hand)
@@ -78,7 +78,7 @@ end
 
 def hit(array)
   array.push(@cards.sample)
-  puts "Name has #{array}"
+  puts @name + " has #{array}"
   new_score = count_score(array)
   if new_score < 22
     puts new_score
